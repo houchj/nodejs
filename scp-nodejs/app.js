@@ -4,8 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+/////
+var jsdom = require("jsdom");
+$ = require('jquery')(new jsdom.JSDOM().window);
+/////
+
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var usersRouter = require('./routes/Users');
+var syncRouter = require('./routes/sync');
 
 var app = express();
 
@@ -17,10 +23,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/Users', usersRouter);
+app.use('/sync', syncRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -38,4 +45,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.disable('etag');
+
 module.exports = app;
+

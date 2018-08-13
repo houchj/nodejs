@@ -1,5 +1,19 @@
 extends layout
 
+
+
 block content
   h1= title
   p Welcome to #{title}
+
+  p <label>Please input BizX Tenant info:</label>
+  <label>api endpoint:</label><input type=text size="50" id="api" value="https://services.odata.org/V3/OData/OData.svc/"></br>
+  <label>api username:</label><input type=text size="50" id="username" value="admin@ECGEPP3"></br>
+  <label>api password:</label><input type=password size="50" id="password" value="demo101" ></br>
+  <label>filter:</label><input type=text id="filter" size="50" value="personIdExternal eq 'scriss1'" ></br>
+  p <label>click the button to sync data from remote bizx servers:</label>
+  <input type=button id="syncbutton" value="sync">
+  p <label id="hint"></label>
+  p <textarea id="syncResponse" rows="40" cols="100" readonly=true ></textarea>
+
+

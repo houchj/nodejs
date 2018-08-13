@@ -7,10 +7,18 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
+    "data-store": "^3.0.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
+    "global-tunnel": "^1.2.0",
     "http-errors": "~1.6.2",
+    "jquery": "^3.3.1",
+    "jsdom": "^11.12.0",
+    "memory-cache": "^0.2.0",
     "morgan": "~1.9.0",
+    "odata": "^0.3.8",
+    "odata-client": "^0.6.9",
+    "pg": "^7.4.3",
     "pug": "2.0.0-beta11"
   }
 }
